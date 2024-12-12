@@ -1,0 +1,104 @@
+﻿:root {
+    --pastel-lavender: #E6E6FA;
+    --pastel-pink: #FFD1DC;
+    --pastel-blue: #B0E0E6;
+    --soft-gray: #F5F5F5;
+    --gentle-purple: #9370DB;
+}
+
+body {
+    background-color: var(--pastel-lavender);
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+.container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    margin-top: 50px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+h2 {
+    color: var(--gentle-purple);
+    text-align: center;
+    margin-bottom: 30px;
+    animation: slideDown 0.7s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-control {
+    border: 2px solid var(--pastel-blue);
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus {
+        border-color: var(--gentle-purple);
+        box-shadow: 0 0 10px rgba(147, 112, 219, 0.2);
+        outline: none;
+    }
+
+.btn-primary {
+    background-color: var(--gentle-purple);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #8A4FFF;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(138, 79, 255, 0.3);
+    }
+
+.text-danger {
+    color: #FF6B6B;
+    animation: shake 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}

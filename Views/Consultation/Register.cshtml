@@ -1,0 +1,67 @@
+﻿@model ConsultationRegistrationViewModel
+
+<div class="container">
+    <h2>Реєстрація на консультацію</h2>
+
+    <form asp-action="Register" method="post">
+        <div class="form-group">
+            <label asp-for="FullName">Ім'я та прізвище</label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product">Продукт</label>
+            <select asp-for="Product" class="form-control">
+                <option value="">Оберіть продукт</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="Основи">Основи</option>
+                <option value="C++">C++</option>
+            </select>
+            <span asp-validation-for="Product" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ConsultationDate">Дата та час консультації</label>
+            <input asp-for="ConsultationDate" type="datetime-local" class="form-control" />
+            <span asp-validation-for="ConsultationDate" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Зареєструватися</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(function() {
+            $('form').validate({
+                rules: {
+                    Product: {
+                        required: true
+                    },
+                    ConsultationDate: {
+                        required: true
+                    }
+                },
+                messages: {
+                    Product: {
+                        required: "Будь ласка, оберіть продукт"
+                    },
+                    ConsultationDate: {
+                        required: "Будь ласка, оберіть дату консультації"
+                    }
+                }
+            });
+        });
+    </script>
+}
